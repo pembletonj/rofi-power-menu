@@ -4,11 +4,11 @@ option="$(printf 'Log out\nPower off\nReboot\n' | rofi -dmenu)"
 
 if [ "$option" = "Log out" ]; then
 	# printf "Logging out.\n"
-	bspc quit
+	loginctl terminate-user $(whoami)
 elif [ "$option" = "Power off" ]; then
 	# printf "Powering off.\n"
-	doas poweroff
+	loginctl poweroff
 elif [ "$option" = "Reboot" ]; then
 	# printf "Rebooting.\n"
-	doas reboot
+	loginctl reboot
 fi
